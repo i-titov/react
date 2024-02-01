@@ -8,13 +8,15 @@ export default function meteoCard({meteoData}){
     const weather = meteoData.meteoData
     return(
         <View style={styles.meteoCard}>
-            <Text variant="headlineMedium">{meteoData.meteoData.name}</Text>
-            <View style={styles.meteo}>
-                <Text variant="headlineMedium">{kelvinToCelsius(weather.main.temp)}</Text>
-                <Text variant="titleLarge">{weather.weather[0].main}</Text>
-                <View>
-                <Text variant="titleMedium">{kelvinToCelsius(weather.main.temp_max)} <Avatar.Icon icon='arrow-up'/></Text>
-                <Text variant="titleMedium">{kelvinToCelsius(weather.main.temp_min)} <Avatar.Icon icon='arrow-down'/></Text>
+            <Text variant="headlineSmall" style={styles.meteoCard.title}>{meteoData.meteoData.name}</Text>
+            <View style={styles.meteoCard.meteo}>
+                <Text variant="displayMedium" style={styles.meteoCard.textTitle}>{kelvinToCelsius(weather.main.temp)}</Text>
+                <Text variant="titleLarge" style={styles.meteoCard.textTitle}>{weather.weather[0].main}</Text>
+                <View style={styles.meteoCard.temps}>
+                    <Avatar.Icon size={25} icon='arrow-up' style={styles.meteoCard.circle}/>
+                    <Text variant="titleMedium" style={styles.meteoCard.textTitle}>{kelvinToCelsius(weather.main.temp_max)}</Text>
+                    <Avatar.Icon size={25} icon='arrow-down' style={styles.meteoCard.circle}/>
+                    <Text variant="titleMedium" style={styles.meteoCard.textTitle}>{kelvinToCelsius(weather.main.temp_min)}</Text>
                 </View>
             </View>
         </View>
@@ -22,20 +24,29 @@ export default function meteoCard({meteoData}){
 }
 const styles= StyleSheet.create({
     meteoCard:{
-        padding:10,
+        padding:20,
         width: '100%',
-        backgroundColor: '#b393ee'
-    },
-    img:{
-        backgroundColor:'transparent',
-        marginRight:'auto',
-        marginLeft:'auto',
-    },
-    meteo:{
-        marginTop:30,
-        marginRight:'auto',
-        marginLeft:'auto',
-        backgroundColor:'#818080'
-
+        marginBottom:30,
+        circle:{
+            backgroundColor:'transparent',
+        },
+        title:{
+            marginRight:'auto',
+            marginLeft:'auto',
+            color:'#fff'
+        },
+        meteo:{
+            marginTop:10,
+            alignItems:'center',
+        },
+        textTitle:{
+            color:'#fff'
+        },
+        temps:{
+            marginTop:5,
+            flexDirection:'row',
+            marginRight:'auto',
+            marginLeft:'auto'
+        }
     }
 })
