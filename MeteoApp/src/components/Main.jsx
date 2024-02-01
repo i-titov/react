@@ -2,6 +2,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import MeteoCard from './UI/MeteoCard'
 import moment from "moment";
 import React, { useState,useEffect } from 'react';
+import ForecastByHour from './UI/ForecastByHour/ForecastByHour'
+import ForecastByDays from "./UI/ForecastByDays/ForecastByDays";
 
 
 export default function main({meteoData,forecastData}){
@@ -14,26 +16,24 @@ export default function main({meteoData,forecastData}){
             return moment(item.dt_txt).format('YYYY-MM-DD') === today
         })
         setForecastByHour(byHour)
-        const arrByDay= []
-        const byDay = forecastData.map(item=>{
-            if (day === moment(item.dt_txt).format('YYYY-MM-DD')){
-                arrByDay.push({[day]: item})
-            }
-        })
-        console.log(arrByDay)
     }, []);
 
     return(
         <View style={styles.container}>
             <MeteoCard meteoData={{meteoData}}/>
+            <ForecastByHour forecastByHour={forecastByHour}/>
+            <ForecastByDays forecastByDays={forecastData}/>
         </View>
     )
 }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgba(255,255,255,0.76)',
+        backgroundColor: 'rgba(141,141,141,0.76)',
         width:'100%',
-        padding:50,
+        padding:30,
     },
+    circle:{
+        backgroundColor:'transparent'
+    }
 });

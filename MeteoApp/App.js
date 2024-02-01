@@ -37,7 +37,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {spinner ? <ActivityIndicator/> : (errorMsg ? <Error/> : <Main meteoData={meteo} forecastData={forecast}/>)}
+        {spinner ? <ActivityIndicator/> : (errorMsg ? <Error/> : <Main meteoData={meteo} forecastData={forecast}/>)}
     </View>
   );
 }
@@ -45,7 +45,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor:'rgba(79,158,238,0.68)',
     alignItems: 'center',
     justifyContent: 'center',
   },

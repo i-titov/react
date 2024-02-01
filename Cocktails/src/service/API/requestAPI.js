@@ -1,0 +1,1 @@
+export function requestAPIByLetter(letter){    return `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`}
