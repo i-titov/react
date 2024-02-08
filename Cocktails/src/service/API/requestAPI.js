@@ -1,1 +1,1 @@
-import axios from "axios";export function UrlApiByLetter(letter){    return `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`}export default async function requestApiByLetter(letter){    return await axios.get(UrlApiByLetter(letter))}
+export function urlApiByLetter(letter){    return `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`}
