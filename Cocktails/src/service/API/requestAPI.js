@@ -1,0 +1,1 @@
+export function urlApiByLetter(letter){    return `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`}export function urlApiById(id){    return `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`}
