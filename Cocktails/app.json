@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Coctails",
-    "slug": "Coctails",
+    "name": "Cocktails",
+    "slug": "Cocktails",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
