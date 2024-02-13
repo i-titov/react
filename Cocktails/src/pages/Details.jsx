@@ -3,7 +3,7 @@ import Spinner from "../components/UI/Spinner/Spinner";
 import axios from "axios";
 import {urlApiById} from "../service/API/requestAPI";
 import {useState,useEffect} from "react";
-import CardInfo from '../components/UI/Card/CardInfo'
+import CocktailInfo from '../components/UI/Card/CocktailInfo'
 import Error from '../components/UI/Error/Error'
 
 
@@ -31,7 +31,7 @@ export default function Details({ route, navigation }){
             {error ? <Error/> :
                 <>
                     {cocktail ?
-                        <CardInfo infoCocktail={cocktail} goBack={goBack}/>
+                        <CocktailInfo infoCocktail={cocktail} goBack={goBack}/>
                         : <Spinner/>}
                 </>}
         </View>
