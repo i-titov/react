@@ -3,16 +3,20 @@ import {useState, useEffect} from "react";
 import {alphabet} from "../service/tools/tools"
 import Spinner from "../components/UI/Spinner/Spinner";
 import CardComponent from "../components/UI/Card/Card";
-import {urlApiByLetter} from "../service/API/requestAPI";
+import {urlApiByLetter} from "../service/urls/urls_api";
 import Error from '../components/UI/Error/Error';
 import axios from "axios";
-
+import {fetchByLetter} from '../service/requests/requests'
+import Store from "../store/Store";
+import {allCocktails} from "../store/Cocktails/AllCocktailsSlice";
 
 export default function Home({ navigation }) {
     const [cocktails, setCocktails] = useState([])
     const [alphabetArr, setAlphabet] = useState(alphabet())
     const [currentLetter, setCurrentLetter] = useState(alphabetArr[0])
     const [error, setError] = useState(false)
+
+
     const nextLetter = ()=>{
         if(currentLetter === alphabetArr[alphabetArr.length -1]){return}
         let letter = alphabetArr.find((item,index)=> index === alphabetArr.indexOf(currentLetter)+1)
@@ -34,6 +38,7 @@ export default function Home({ navigation }) {
         navigation.navigate('Details', {id})
     }
     useEffect(()=>{
+       // Store.dispatch(allCocktails(fetchByLetter('a')))
         fetchMoreData(currentLetter)
     },[currentLetter])
     return (

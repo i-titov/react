@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     },
     btn:{
         backgroundColor:'#efebe6',
-        height:70,
+        height:50,
         justifyContent:'center',
         alignItems:'center',
         text:{

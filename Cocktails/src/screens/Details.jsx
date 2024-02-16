@@ -1,7 +1,7 @@
 import {View} from "react-native";
 import Spinner from "../components/UI/Spinner/Spinner";
 import axios from "axios";
-import {urlApiById} from "../service/API/requestAPI";
+import {urlApiById} from "../service/urls/urls_api";
 import {useState,useEffect} from "react";
 import CocktailInfo from '../components/UI/Card/CocktailInfo'
 import Error from '../components/UI/Error/Error'
@@ -10,8 +10,9 @@ import Error from '../components/UI/Error/Error'
 export default function Details({ route, navigation }){
     const [cocktail, setCocktail] = useState(null)
     const [error, setError] = useState(false)
-    const { id } = route.params;
+    let id  = route.params.id;
     const goBack = ()=>{
+        id = null
         navigation.goBack()
     }
     async function fetchInfoData() {
@@ -25,7 +26,7 @@ export default function Details({ route, navigation }){
     }
     useEffect(()=>{
         fetchInfoData()
-    },[])
+    },[id])
     return (
         <View style={{ flex: 1, justifyContent: 'center' }}>
             {error ? <Error/> :
